@@ -1,0 +1,1 @@
+# Copy-Page-Info-Close-Tab
