@@ -74,7 +74,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 function mainJob(tab) {
   l('mainJob()', tab)
 
-  copyToClipboard(tab.title + SEP + tab.url)
+  copyToClipboard(tab.title + SEP + tab.url + SEP)
 
   chrome.tabs.query({ currentWindow: true }, function (tabs) {
     l('tabs.query', tabs)
