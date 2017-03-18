@@ -6,7 +6,7 @@ const w = console.warn
 const e = console.error
 
 
-const SEP = '\n'
+//const SEP = '\n'
 const MENU_ID = '1'
 let textarea
 
@@ -44,7 +44,7 @@ function init() {
   l('init()')
 
   chrome.contextMenus.create({
-    title: 'Copy page info && close tab',
+    title: 'Copy page URL && close tab',
     contexts: ['page', 'frame', 'selection', 'link', 'editable', 'image', 'video', 'audio' ],
     id: MENU_ID
   })
@@ -74,7 +74,8 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 function mainJob(tab) {
   l('mainJob()', tab)
 
-  copyToClipboard(tab.url + SEP + tab.title + SEP)
+//  copyToClipboard(tab.url + SEP + tab.title + SEP)
+  copyToClipboard(tab.url)
 
   chrome.tabs.query({ currentWindow: true }, function (tabs) {
     l('tabs.query', tabs)
