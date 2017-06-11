@@ -8,16 +8,7 @@ const e = console.error
 
 //const SEP = '\n'
 const MENU_ID = '1'
-let textarea
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  l('DOMContentLoaded')
-
-  textarea = document.querySelector('textarea')
-})
+const textarea = document.querySelector('textarea')
 
 
 
@@ -45,7 +36,7 @@ function init() {
 
   chrome.contextMenus.create({
     title: 'Copy page URL && close tab',
-    contexts: ['page', 'frame', 'selection', 'link', 'editable', 'image', 'video', 'audio' ],
+    contexts: [ 'page' ],
     id: MENU_ID
   })
 }
@@ -55,6 +46,11 @@ function init() {
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
   l('contextMenus.onClicked()', info, tab)
+
+  if (tab.id === chrome.tabs.TAB_ID_NONE) {
+    w('trying to close extension popup')
+    return
+  }
 
   mainJob(tab)
 })
@@ -72,7 +68,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 
 
 function mainJob(tab) {
-  l('mainJob()', tab)
+  l('mainJob()')
 
 //  copyToClipboard(tab.url + SEP + tab.title + SEP)
   copyToClipboard(tab.url)
@@ -92,10 +88,10 @@ function mainJob(tab) {
 
 
 function copyToClipboard(text) {
-  l('copyToClipboard()')
+  l('copyToClipboard()', text)
 
   textarea.value = text
   textarea.select()
-  let result = document.execCommand('copy')
+  const result = document.execCommand('copy')
   l('document.execCommand()', result)
 }

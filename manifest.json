@@ -2,7 +2,7 @@
   "author": "Dima PM",
   "manifest_version": 2,
   "name": "Copy Page URL & Close Tab",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Copies page URL to clipboard and closes tab.",
   "background": {
     "page": "background.html",
@@ -13,5 +13,5 @@
   "icons": {
     "16": "icon16.png"
   },
-  "permissions": [ "contextMenus" ]
+  "permissions": [ "activeTab", "contextMenus" ]
 }

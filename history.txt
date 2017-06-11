@@ -1,0 +1,15 @@
+12.03.2013
+first version
+
+13.03.2013
++ SEP after URL
+
+17.03.2017
+changed order of URL and Title
+
+18.03.2017
+- page title
+
+11.06.2017
+fix for Chrome 60
++ checking of calling context menu in another extension popup
